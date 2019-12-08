@@ -5,12 +5,12 @@ const Users = require('./users-model.js');
 // need an authenticated user. Note that we are not doing ANYTHING about
 // authorization in this sample project... If you exist, and can prove you are
 // you by knowing your password, you can do All The Things(tm). 
-const authrequired = require('../auth/auth-required-middleware.js');
+// const authrequired = require('../auth/auth-required-middleware.js');
 
 // This method is protected by adding the "authrequired" middleware function to
 // the chain before the actual handler function that finds and returns all the
 // users from the users model (DB). 
-router.get('/', authrequired, (req, res) => {
+router.get('/', (req, res) => {
   Users.find()
     .then(users => {
       res.json(users);
